@@ -1,0 +1,33 @@
+# Continuous Integration: run the test suite on every push and pull request to main.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# The workflow only needs to read the code, so don't give it write access.
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Download this repository's code onto the runner.
+      - uses: actions/checkout@v5
+
+      # Install Node 22, and cache npm's download folder between runs
+      # (keyed on package-lock.json) so installs are faster.
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      # Install exactly the versions in package-lock.json.
+      - run: npm ci
+
+      # Run the Vitest suite; a failing test fails the workflow.
+      - run: npm test
