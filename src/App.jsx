@@ -19,9 +19,9 @@ import { downloadTodosCsv } from './csv'
 
 // Some starter data so the app isn't empty the first time you open it.
 const STARTER_TODOS = [
-  { id: 1, text: 'Read the comments in App.jsx', done: true, priority: 'high' },
-  { id: 2, text: 'Add your own to-do above', done: false, priority: 'medium' },
-  { id: 3, text: 'Double-click a to-do to edit it', done: false, priority: 'low' },
+  { id: 1, text: 'Welcome to your new To-Do App! 👋', done: false, priority: 'high' },
+  { id: 2, text: 'Add a task using the text box above 📝', done: false, priority: 'medium' },
+  { id: 3, text: 'Check out your productivity stats under the Insights tab! 📊', done: false, priority: 'low' },
 ]
 
 export default function App() {
