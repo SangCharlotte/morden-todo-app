@@ -1,0 +1,18 @@
+# Dependencies and build output: the Dockerfile installs and builds its own.
+node_modules
+dist
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment files can hold secrets (API keys) and must never enter an image.
+.env
+.env.*
+
+# Not needed to build the app
+.git
+.gitignore
+Dockerfile
+.dockerignore
+README.md
